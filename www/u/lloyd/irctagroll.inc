@@ -1,6 +1,6 @@
 <?php
 
-define(IRCWORDS_LOCATION, '/irc/usr/local/www/hackthebrowser.org/irc_logs/');
+define(IRCWORDS_LOCATION, '/usr/local/www/hackthebrowser.org/irc_logs/');
 
 ######## 
 # Get all of the available word groups as an array
