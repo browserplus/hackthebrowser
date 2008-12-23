@@ -3,7 +3,7 @@
 # talking about today, this week, and this month
 
 require "mysql"
-my = Mysql::new("mysql50.hub.org", "720_htb", "h4cky", "irc")
+my = Mysql::new("mysql50.hub.org", "720_htb", "h4cky", "720_hackthebrowser")
 
 NUM_TOP_WORDS = 100
 MIN_LETTERS = 4
