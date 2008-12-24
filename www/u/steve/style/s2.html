@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Hack the Browser</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css"> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style type="text/css" media="screen">
+	#bd {margin-top:20px;}
+	#ft {clear:both;}
+			
+	/* header and masthead */
+	#hd {background:transparent url(images/logo-keys-200.gif) no-repeat right 0;padding:10px 10px 0px 10px;}
+	#hd img {display:block;}
+	#hd #tagline {margin:6px 0 4px 0;}
+	#hd form {float:right;position:relative;margin:18px 0 0 0;}
+	#hd form input {margin-left:4px;}
+
+	/* nav tabs */
+	/*
+	#nav {margin-top:0px;border-top:2px solid #005288;font-size:13px;}
+	#nav a {text-decoration:none;color:#005288;padding:0;margin:0;}
+	#nav ul {padding:0;margin:0;}
+	#nav ul li {float:left;margin:0;padding:0 4px 0 4px;background:none;}
+	#nav ul li a {display:block;padding:3px 8px 3px 8px;border-top:4px solid #fff;}
+	#nav ul li a:hover {border-top:4px solid #005288;background-color:#edf5ff;}
+	#nav ul li.on a {border-top:4px solid #005288;background-color:#edf5ff;}
+	#nav ul li.on a:hover {border-top:4px solid #005288;}
+	*/
+	/*
+	dark gray 7C7062, blue 0036CE, orange EB5E00, green 92CD00
+	*/
+	#nav {margin-top:0px;font-size:13px; background:none;/*border-top:4px solid #03c;*/
+	    border-bottom:4px solid #0036CE;margin-top:5px;}
+	#nav a {text-decoration:none;color:black;padding:0;margin:0;font-weight:bold;letter-spacing:0.10em;}
+	#nav ul {padding:0;margin:0;}
+	#nav ul li {float:left;margin:0;padding:0;background:#ddd;border-right:1px solid #999;}
+	#nav ul li a {display:block;padding:3px 10px 3px 10px;}
+	#nav ul li a:hover {background-color:#777;}
+	#nav ul li.on a {background:#0036CE;color:#fff;}
+	#nav ul li.on a:hover {}
+
+	
+	/* utilities */
+	.clearfix { /* for IE */
+		zoom:1;
+	}
+	.clearfix:after { /* for Others */
+	    content: "."; 
+	    display: block; 
+	    height: 0; 
+	    clear: both; 
+	    visibility: hidden;
+	}
+
+
+
+
+
+    .mod ul {
+        margin: 5px 0pt;
+    }
+    p {
+        margin: 1em;
+    }
+
+    h2 {
+        margin:1em 0;
+        border-bottom: 1px dotted #005288;
+        color:#444  ;
+    }
+
+    h1 { font-size: 22px; font-weight: bold; color:#03c;}
+    h2 { font-size: 20px; font-weight: bold; }
+    h3 { margin-left: 0; font-weight: bold; font-size: 16px; }
+    h4 { margin: 5px 0 0 1em; font-weight: bold; font-size: 14px; }
+    pre { margin-left: 1em; border: 1px solid #ccc; background-color: #FBFBFB; padding: .5em;}
+    #yui-main div.main ul {
+        margin-left: 35px;
+    }
+	
+
+
+
+	/* secondary */		
+	.secondary {/*margin-top:29px;*/}		
+	.secondary .mod {/*background: transparent url(images/secondary-gradient10.gif) no-repeat;*/
+					background-color:#fbfbfb;
+					border-left:1px solid #ccc;
+					margin:0 0 16px 0;
+					padding:10px 10px 10px 10px;
+					font-size:12px;
+					color:#666;}
+	.secondary .mod a {text-decoration:none;color:#005288;}
+	.secondary .mod a:hover {text-decoration:underline;}
+	.secondary .mod .hd h4 {font-size:11px;text-transform:uppercase;}
+	.secondary .mod .bd p {font-size:11px;}
+	.secondary .mod .bd ul li {background:transparent url(images/bullet-box6x6.gif) no-repeat 2px 5px;padding-left:15px;margin-bottom:10px;}
+	.secondary .mod .bd li cite {font-size:10px;font-family:verdana;color:#999;}
+	.secondary .mod .bd li cite.comments {display:none;}
+	.secondary .mod .bd li cite.comments a.comments {}
+	.secondary .mod .bd li cite.author:before {content:'by ';}
+	.secondary .mod .bd li cite.date:before {content:'on ';}
+	.secondary .mod .bd li cite.time:before {content:'at ';}
+	
+	.secondary .nav .mod {padding:10px 0px 10px 10px;margin-bottom:0;}
+	.secondary .nav .mod .hd {margin-bottom:0;color:#333;}
+	.secondary .nav .mod .bd ul li {margin-bottom:2px;}
+	.secondary .nav .mod .bd ul {margin:10px 0 0 0;}		
+        
+    </style>
+</head>
+<body>
+    <!-- doc:750C, doc2:950C, doc3:100% 10px, doc4:974C -->
+    <!-- t1:160L, t2:180L, t3:300L, t4:180R, t5:240R, t6:300R -->
+    <div id="doc3" class="yui-t4">
+        <a name="top"></a>
+        <div id="hd" class="clearfix">
+
+            <div class="logos">
+                <form class="clearfix" action="http://search.yahoo.com/search" method="get">
+                    <input name="vs" type="hidden" value="developer.yahoo.com">
+                    <input name="vs" type="hidden" value="yuiblog.com">
+                    <input name="vs" type="hidden" value="yuilibrary.com">
+                    <input type="search" id="sitesearchbox" name="p">
+                    <input type="button" name="some_name" value="Search" id="sitesearchbutton">
+                </form>
+
+                <img id="logo" src="logo-orange.png" width="361" height="21" alt="Hack the Browser">
+                <img id="tagline" src="tagline-blue.png" width="454" height="12" alt="Playground for the development of open-source, scriptable browser plugins">
+            </div>
+        </div>
+
+        <div id="nav" class="navtabs clearfix">
+            <ul>
+                <li ><a href="/">Home</a></li>
+                <li><a href="/gitfaq/">Git FAQ</a></li>
+                <!--li><a href="/contrib/">Contributors</a></li-->
+                <li class="on"><a href="/forum/">Forums</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/downloads/">Downloads</a></li>
+            </ul>
+        </div>
+
+        <div id="bd">
+            <div id="yui-main">
+                <div class="yui-b">
+
+                    <h1>Welcome to the YUI Project</h1>
+
+                    <p>The YUI Project comprises a family of tools — including JavaScript, CSS, and developer tools — that empower web developers to build fast, performant projects.</p>
+                    <ul>
+                      <li>YUI Library JavaScript and CSS:
+                        <ul>
+                          <li><a href="http://developer.yahoo.com/yui/">YUI 2.x codeline</a> (mature, production-quality code)</li>
+                          <li><a href="http://developer.yahoo.com/yui/3/">YUI 3.x codeline</a> (preview release available)</li>
+                        </ul>
+                      </li>
+                      <li><a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a> — minify and obfuscate your JavaScript and CSS</li>
+                      <li><a href="/projects/yuidoc/wiki">YUI Doc</a> — generate beautiful, organized, searchable API docs for your JS code</li>
+                    </ul>
+                    <h2>Contribute to YUI</h2>
+                    <p>Anyone can contribute to YUI by signing and returning a Contributor's Licence Agreement. Visit the <a href="http://developer.yahoo.com/yui/community/contribute.html">YUI Contributor's Page</a> for more information.</p>
+                    <h2>About YUILibrary.com</h2>
+                    <p>This site will become the principal online home for the YUI Library over the coming months. Today, the majority of documentation for YUI can be found on the Yahoo Developer Network. If you're looking to get started with YUI, please begin with <a href="http://developer.yahoo.com/yui/">the YUI website on YDN</a>.</p>
+
+
+
+
+                    <!-- primary block -->
+                </div>
+            </div>
+            <div class="yui-b secondary">
+
+
+
+                <div class="mod">
+                  <div class="hd"><h4>Recent Forums Posts</h4></div>
+                  <div class="bd">
+                      <ul>
+                <li>
+                <h5><a href="/forum/viewtopic.php?p=114#p114">Re: readOnly property doesn't work properly?</a></h5>
+                <cite class="author">davglass</cite> <cite class="date">Dec 22nd</cite>
+                </li>
+                <li>
+                <h5><a href="/forum/viewtopic.php?p=113#p113">Re: readOnly property doesn't work properly?</a></h5>
+                <cite class="author">Kamil T.</cite> <cite class="date">Dec 22nd</cite>
+                </li>
+                <li>
+                <h5><a href="/forum/viewtopic.php?p=112#p112">Re: readOnly property doesn't work properly?</a></h5>
+                <cite class="author">davglass</cite> <cite class="date">Dec 22nd</cite>
+                </li>
+                <li>
+                <h5><a href="/forum/viewtopic.php?p=111#p111">Re: readOnly property doesn't work properly?</a></h5>
+                <cite class="author">Kamil T.</cite> <cite class="date">Dec 22nd</cite>
+                </li>
+                <li>
+                <h5><a href="/forum/viewtopic.php?p=110#p110">Re: Non-english / accented characters are not allowed in docs?</a></h5>
+                <cite class="author">Kamil T.</cite> <cite class="date">Dec 22nd</cite>
+                </li>
+                </ul>
+
+                  </div>
+                </div>
+
+
+
+
+
+                <!-- secondary block -->
+            </div>
+        </div>
+        <div id="ft"></div>
+    </div>
+</body>
+</html>
