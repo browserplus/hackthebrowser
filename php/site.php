@@ -15,6 +15,75 @@ $SITE_MENU = array(
     NAV_ABOUT   => array("/about/", "About")
 );
 
+// escape html text
+function h($text)
+{
+    return htmlspecialchars($text,ENT_QUOTES);//,'UTF-8');
+}
+
+function hyperlink_urls_in_text($string){
+    $host = "([a-z\d][-a-z\d]*[a-z\d]\.)+[a-z][-a-z\d]*[a-z]";
+    $port = "(:\d{1,})?";
+    $path = "(\/[^?<>\#\"\s]+)?";
+    $query = "(\?[^<>\#\"\s]+)?";
+    return preg_replace("#((ht|f)tps?:\/\/{$host}{$port}{$path}{$query})#i", "<a target='_blank' href='$1'>$1</a>", $string);
+}
+
+function emoticonize_text($string)
+{
+    $search = array(
+    ":)",
+    ":-)",
+    ":(",
+    ":-(",
+    ";)",
+    ";-)",
+    ":D",
+    ":-D",
+    ":|",
+    ":-|",
+    "8)",
+    "8-)",
+    ":P",
+    ":-P",
+    ":O",
+    "9.9",
+    ":\\",
+    ":-\\",
+    ":x",
+    ":-x",
+    "d:)",
+    "[:)"
+    );
+
+    $replace = array(
+        '<img alt="smile" src="/img/emote/smile.png">', 
+        '<img alt="smile" src="/img/emote/smile.png">', 
+        '<img alt="frown" src="/img/emote/frown.png">',
+        '<img alt="frown" src="/img/emote/frown.png">',
+        '<img alt="wink" src="/img/emote/wink.png">',
+        '<img alt="wink" src="/img/emote/wink.png">',
+        '<img alt="happy" src="/img/emote/happy.png">',
+        '<img alt="happy" src="/img/emote/happy.png">',
+        '<img alt="stoic" src="/img/emote/stoic.png">',
+        '<img alt="stoic" src="/img/emote/stoic.png">',
+        '<img alt="cool" src="/img/emote/cool.png">',
+        '<img alt="cool" src="/img/emote/cool.png">',
+        '<img alt="razz" src="/img/emote/razz.png">',
+        '<img alt="razz" src="/img/emote/razz.png">',
+        '<img alt="surprised" src="/img/emote/surprised.png">',
+        '<img alt="sarcastic" src="/img/emote/sarcastic.png">',
+        '<img alt="annoyed" src="/img/emote/annoyed.png">',
+        '<img alt="annoyed" src="/img/emote/annoyed.png">',
+        '<img alt="angry" src="/img/emote/angry.png">',
+        '<img alt="angry" src="/img/emote/angry.png">',
+        '<img alt="relaxed" src="/img/emote/relaxed.png">',
+        '<img alt="jamming" src="/img/emote/jamming.png">'
+    );
+
+    return str_replace($search, $replace, $string);
+}
+
 function site_header($selected_tab, $page_title, $cols)
 {
     global $SITE_MENU, $__NumCols__;

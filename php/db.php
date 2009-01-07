@@ -54,13 +54,18 @@ function db_fetch_all($sql, $values = false)
     return $rows;
 }
 
-function chat_last_n_rows($num_rows)
+function chat_max_id()
 {
-    $max_id = db_max(CHAT_TABLE, "id");
+    return db_max(CHAT_TABLE, "id");    
+}
 
-    $n = $max_id - $num_rows;
-    $sql = "SELECT * FROM " . CHAT_TABLE . " WHERE id > $n ORDER BY chat.stamp";
-    return db_fetch_all($sql);
+function chat_last_n_rows($max_id, $num_rows=10)
+{
+    $num_rows = min(100, $num_rows);
+    $starting_id = max(0, $max_id - $num_rows);
+    $sql = "SELECT * FROM " . CHAT_TABLE . " WHERE id > ? ORDER BY chat.stamp LIMIT $num_rows";
+
+    return db_fetch_all($sql, array($starting_id));
 }
 
 

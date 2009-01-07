@@ -1,7 +1,7 @@
 body {font-family:verdana;}
 h1,h2,h3,h4,h5,h6 {font-family:arial;font-weight:bold; color:#555;}
 #bd {margin-top:5px;}
-#ft {clear:both;}
+#ft {clear:both;margin-top:20px;}
 
 /* header and masthead */
 #hd {padding:10px 10px 0px 10px;}
@@ -19,7 +19,7 @@ h1,h2,h3,h4,h5,h6 {font-family:arial;font-weight:bold; color:#555;}
 #nav ul li a:hover {background-color:#777;}
 #nav ul li.on a {background:#EB5E00;color:#fff;font-weight:bold; border-bottom:1px solid #e96;}
 #nav ul li.on {border-right:none;}
-#nav ul li.on a:hover {color:#ff0;text-transform:underline;}
+#nav ul li.on a:hover {}
 
 p {margin:1em 0;}
 
@@ -31,3 +31,13 @@ h4 {font-size:14px; }
 /* utilities */
 .clearfix { /* for IE */ zoom:1;}
 .clearfix:after { /* for Others */ content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+/* irc */
+.ircNav {font-size:85%; margin:5px auto; text-align:center;}
+
+.ircEntries table { margin: 1px; font-size:85%; border-collapse:collapse;border-spacing:0;}
+.ircEntries td { padding:5px; border:1px dotted #bbb;}
+.ircDate  { background:#f5f5f5;}
+.ircWho {font-weight:bold;color:#369;}
+.odd {background:#f0f5ff;}
+.even {background:#fff;}
