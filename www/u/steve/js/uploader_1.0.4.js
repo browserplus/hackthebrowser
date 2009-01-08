@@ -142,6 +142,8 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
             var userDiv = containingDiv;
             var MimeTypes = null;
             var ConfigParams = {
+                fileCB: null,
+                postCB: null,
                 uploadUrl: null,
                 fileVarName: "file",
                 mimeTypes: null,
