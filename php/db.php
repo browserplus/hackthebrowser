@@ -54,12 +54,12 @@ function db_fetch_all($sql, $values = false)
     return $rows;
 }
 
-function chat_max_id()
+function irc_max_id()
 {
     return db_max(CHAT_TABLE, "id");    
 }
 
-function chat_last_n_rows($max_id, $num_rows=10)
+function irc_last_n_rows($max_id, $num_rows=10)
 {
     $num_rows = min(100, $num_rows);
     $starting_id = max(0, $max_id - $num_rows);

@@ -89,7 +89,7 @@ function site_header($selected_tab, $page_title, $cols)
     global $SITE_MENU, $__NumCols__;
 
     $__NumCols__ = $cols;
-    $cols_clz = ($cols == COLS_2 ? "class=\"yui-t4\"" : "");
+    $cols_clz = ($cols == COLS_2 ? "class=\"yui-t5\"" : "");
     $form = ""; // or the below if we want search
     /* 
         <form class="clearfix" action="http://search.yahoo.com/search" method="get">

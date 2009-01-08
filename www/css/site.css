@@ -41,3 +41,24 @@ h4 {font-size:14px; }
 .ircWho {font-weight:bold;color:#369;}
 .odd {background:#f0f5ff;}
 .even {background:#fff;}
+
+/* secondary */
+.secondary { margin-top:30px; }
+
+.secondary .mod {
+    background-color:#fbfbfb;
+    border:1px solid #ccc;
+    margin:0 0 16px 0;
+    padding:10px 10px 10px 10px;
+    color:#666;}
+
+.secondary .mod a {text-decoration:none;color:#005288;}
+.secondary .mod a:hover {text-decoration:underline;}
+.secondary .mod .hd h4 {text-align:left;text-transform:uppercase;border-bottom:1px dotted #999;}
+.secondary .mod .bd p {}
+.mod .tagCloud {}
+
+.ircsearchbox { margin:0 0 20px 10px;}
+.ircsearchlabel {font-weight:bold;font-family:arial;}
+
+
