@@ -26,7 +26,11 @@ function hyperlink_urls_in_text($string){
     $port = "(:\d{1,})?";
     $path = "(\/[^?<>\#\"\s]+)?";
     $query = "(\?[^<>\#\"\s]+)?";
-    return preg_replace("#((ht|f)tps?:\/\/{$host}{$port}{$path}{$query})#i", "<a target='_blank' href='$1'>$1</a>", $string);
+    $string = preg_replace("#((ht|f)tps?:\/\/{$host}{$port}{$path}{$query})#i", "<a target='_blank' href='$1'>$1</a>", $string);
+    // highlight karma
+    $string = preg_replace("/^(\w+--)$/", "<span style=\"color:red;font-style:italic\">$1</span>", $string);
+    $string = preg_replace("/^(\w+\+\+)$/", "<span style=\"color:green;font-style:italic;\">$1</span>", $string);
+    return $string;
 }
 
 function emoticonize_text($string)

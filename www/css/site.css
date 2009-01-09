@@ -34,7 +34,7 @@ h4 {font-size:14px; }
 
 /* irc */
 .ircNav {font-size:85%; margin:5px auto; text-align:center;}
-
+.ircTitle {margin-top: 20px;}
 .ircEntries table { margin: 1px; font-size:85%; border-collapse:collapse;border-spacing:0;}
 .ircEntries td { padding:5px; border:1px dotted #bbb;}
 .ircDate  { background:#f5f5f5;}

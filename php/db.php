@@ -1,5 +1,6 @@
 <?php
 define("CHAT_TABLE", "chat");
+define("MAX_ROW_COUNT", 500);
 
 function db()
 {
@@ -61,11 +62,16 @@ function irc_max_id()
 
 function irc_last_n_rows($max_id, $num_rows=10)
 {
-    $num_rows = min(100, $num_rows);
     $starting_id = max(0, $max_id - $num_rows);
     $sql = "SELECT * FROM " . CHAT_TABLE . " WHERE id > ? ORDER BY chat.stamp LIMIT $num_rows";
 
     return db_fetch_all($sql, array($starting_id));
+}
+
+function irc_search($search, $num_rows)
+{
+    $sql = "SELECT * FROM " . CHAT_TABLE . " WHERE MATCH(utterance) AGAINST (?)  ORDER BY stamp DESC LIMIT $num_rows";
+    return db_fetch_all($sql, array($search));
 }
 
 
