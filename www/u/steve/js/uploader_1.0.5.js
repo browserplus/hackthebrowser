@@ -9,7 +9,8 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
     var dropZoneNumber = 1;
     var doingUpload = false;
     var ACTION = {UPLOAD: "uploaded", ADD: "add", REMOVE: "remove", SELECT: "select", UNSELECT: "unselect"};
-
+    var CONSTRAINT = {TOOBIG: "toobig", TOOMANY: "toomany", MIMETYPE: "mimetype"};
+    
     var uploadTmpl = 
     '<div style="position:relative; width:100%; height:100%; padding:0; background:{uploadBackground}; font:{uploadFont}">' +
     '    <div style="color:{titleColor};">' + 
@@ -144,9 +145,14 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
             var ConfigParams = {
                 fileCB: null,
                 postCB: null,
+                constraintCB: null,
                 uploadCompleteCB: null,
                 uploadUrl: null,
                 fileVarName: "file",
+
+                // file restrictions
+                maxFileSize: 0,
+                maxFiles: 0,
                 mimeTypes: null,
 
                 // UI
@@ -207,7 +213,7 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
                     return dropZoneId+"_"+file.BrowserPlusHandleID;
                 }
                 
-                function callback(file, action, value)
+                function fireActionListener(file, action, value)
                 {
                     if (ConfigParams.fileCB) {
                         ConfigParams.fileCB({
@@ -215,9 +221,23 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
                             action: action,
                             name: file.name,
                             size: file.size,
+                            mime: file.mimeType,
                             id: userDiv,
                             uuid: getUUID(file),
                             value: value
+                        });
+                    }
+                }
+                
+                function fireConstraintViolation(file, constraint)
+                {
+                    if (ConfigParams.constraintCB) {
+                        ConfigParams.constraintCB({
+                            constraint: constraint,
+                            name: file.name,
+                            size: file.size,
+                            mime: file.mimeType,
+                            id: userDiv
                         });
                     }
                 }
@@ -265,10 +285,26 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
                 }
 
                 function onFileSelect(files) {
+                    var len, size, file;
+
                     for (var i = 0; i < files.length; i++) {
-                        if ( (!MimeTypes || MimeTypes[files[i].mimeType] === 1) && files[i].mimeType != "application/x-folder") {
-                            callback(files[i], ACTION.ADD);
-                            droppedFiles.push(files[i]);
+                        file = files[i];
+                        if (ConfigParams.maxFiles > 0 && droppedFiles.length >= ConfigParams.maxFiles) {
+                            fireConstraintViolation(file, CONSTRAINT.TOOMANY);
+                            break;
+                        }
+                        
+                        if (ConfigParams.maxFileSize > 0 && file.size > ConfigParams.maxFileSize) {
+                            fireConstraintViolation(file, CONSTRAINT.TOOBIG);
+                            continue;
+                        }
+
+                        if ( (!MimeTypes || MimeTypes[file.mimeType] === 1) && file.mimeType != "application/x-folder") {
+                            fireActionListener(file, ACTION.ADD);
+                            droppedFiles.push(file);
+                        } else if (MimeTypes && !MimeTypes[file.mimeType]) {
+                            fireConstraintViolation(file, CONSTRAINT.MIMETYPE);
+                            continue;
                         }
                     }
                     renderCoreUI();
@@ -297,12 +333,12 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
 
                                 if (selectedFileId) {
                                     // unselect the selected file
-                                    callback(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
+                                    fireActionListener(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
                                     selectedFileId = null;
                                 }
 
                                 // remove the file from the list
-                                callback(droppedFiles[a[0]], ACTION.REMOVE);
+                                fireActionListener(droppedFiles[a[0]], ACTION.REMOVE);
                                 droppedFiles.splice(a[0], 1);
                                 renderCoreUI();
                             }
@@ -321,23 +357,23 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
                                 // handle selecting/unselecting file
                                 if (selectedFileId) {
                                     highlightFile(selectedFileId, false);
-                                    callback(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
+                                    fireActionListener(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
                                     
                                     if (p.id != selectedFileId) {
                                         highlightFile(p.id, true);
                                         selectedFileId = p.id;
-                                        callback(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.SELECT);
+                                        fireActionListener(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.SELECT);
                                     } else {
                                         selectedFileId = null;
                                     }
                                 } else {
                                     highlightFile(p.id, true);
                                     selectedFileId = p.id;
-                                    callback(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.SELECT);
+                                    fireActionListener(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.SELECT);
                                 }
                             } else if (selectedFileId) {
                                 highlightFile(selectedFileId, false);
-                                callback(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
+                                fireActionListener(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
                                 selectedFileId = null;
                             }
                         }
@@ -358,7 +394,7 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
                     if (ConfigParams.uploadUrl) {
                         if (selectedFileId) {
                             highlightFile(selectedFileId, false);
-                            callback(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
+                            fireActionListener(droppedFiles[selectedFileId.match(/[0-9]+$/)[0]], ACTION.UNSELECT);
                             selectedFileId = null;
                         }
                         startUpload();
@@ -471,7 +507,7 @@ BPTool.Uploader = typeof BPTool.Uploader != "undefined" && BPTool.Uploader ? BPT
                             droppedFiles.shift();
                             renderCoreUI();
                             // result.value has elements statusCode, statusString, headers, and body
-                            callback(file, ACTION.UPLOAD, res.value);
+                            fireActionListener(file, ACTION.UPLOAD, res.value);
                             startUpload();
                         } else {
                             if (ConfigParams.fileCB) {
