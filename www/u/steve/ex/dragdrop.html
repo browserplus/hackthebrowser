@@ -1,0 +1,73 @@
+<html>
+    <head><title>Your first drop target</title>
+    <style type="text/css" media="screen">
+    #myTarget {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        /* if you set background on hover, add opacity */
+        /*
+        opacity:0.4;
+        filter: alpha(opacity=40)
+        */
+    }
+    
+    #lastDropDetails {
+        background:#ccc;
+        padding:10px;
+        width:400px;
+        z-index:4;
+    }
+    </style>
+</head>
+<body>
+    <div id="myTarget"></div>
+    <div id="status">Loading...</div>
+    <div id="lastDropDetails"></div>   
+
+<script src="http://bp.yahooapis.com/2.1.14/browserplus-min.js"></script>
+<script type="text/javascript">
+function setDropAreaText(txt) {
+    document.getElementById("status").innerHTML = txt;
+}
+
+function hovering(hoverOn) {
+    setDropAreaText(hoverOn ? "drop it!" : "drag something to me");
+    /*document.getElementById("myTarget").style.background = (hoverOn ? "#ffc" : "");*/
+} 
+
+function dropped(arg) {
+    var i, txt;
+    txt = "<div><b>Last drop details:<\/b> " + arg.length + " files dropped<\/div><ul>";
+    for (i = 0; i < arg.length; i++) {
+        txt += "<li>" + arg[i].BrowserPlusHandleName + "<\/li>";
+    }
+
+    document.getElementById("lastDropDetails").innerHTML = txt;
+}
+
+BrowserPlus.init(function(res) {
+    if (res.success) {
+        BrowserPlus.require({services: [{service: 'DragAndDrop'}]},
+            function(res) {
+                if (res.success) {
+                    var dnd = BrowserPlus.DragAndDrop;
+                    dnd.AddDropTarget({id: "myTarget"},
+                        function(res) {
+                            dnd.AttachCallbacks({id: "myTarget",hover: hovering, drop: dropped},
+                            function(){});
+                        setDropAreaText("drag something to me.");
+                    });
+                } else {
+                    alert("Error Loading DragAndDrop: " + res.error);
+                }
+            });
+    } else {
+        alert("Failed to initialize BrowserPlus: " + res.error);
+  }
+}); 
+</script> 
+</body>
+</html>
