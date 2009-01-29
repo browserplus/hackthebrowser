@@ -10,7 +10,7 @@
         /* if you set background on hover, add opacity */
         /*
         opacity:0.4;
-        filter: alpha(opacity=40)
+        filter: alpha(opacity=40);
         */
     }
     
@@ -34,7 +34,7 @@ function setDropAreaText(txt) {
 }
 
 function hovering(hoverOn) {
-    setDropAreaText(hoverOn ? "drop it!" : "drag something to me");
+    setDropAreaText((hoverOn ? "drop it!" : "drag something to me"));
     /*document.getElementById("myTarget").style.background = (hoverOn ? "#ffc" : "");*/
 } 
 
