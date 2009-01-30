@@ -7,6 +7,7 @@
         top: 0;
         width: 100%;
         height: 100%;
+        z-index:1;
         /* if you set background on hover, add opacity */
         /*
         opacity:0.4;
@@ -18,12 +19,18 @@
         background:#ccc;
         padding:10px;
         width:400px;
-        z-index:4;
     }
+    
+    a {
+        z-index:10;
+        background:#9cf;
+    }
+
     </style>
 </head>
 <body>
     <div id="myTarget"></div>
+    <div><a href="http://m.www.yahoo.com/">You can't click on me!</a></div>
     <div id="status">Loading...</div>
     <div id="lastDropDetails"></div>   
 
