@@ -1,0 +1,12 @@
+# fakeplus
+
+Back in the day, when BrowserPlus was first meeting the world, why
+the lucky stiff [took the thing apart](http://hackety.org/2008/06/09/dismantlingBrowserPlus.html).
+
+In addition to some great ideas about how to make the BrowserPlus ruby
+environment better, he produced a tiny little replica of the BrowserPlus
+distribution server.  This thing is out of date, but it could be 
+pretty easily updated and could be a simple way to enable tinkering 
+or other things, like company internal testing or distribution servers.
+
+Source Code: [http://github.com/why/fakeplus/tree/master](http://github.com/why/fakeplus/tree/master)

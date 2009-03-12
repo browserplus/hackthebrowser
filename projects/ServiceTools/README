@@ -1,0 +1,11 @@
+# Service Tools
+
+Some aspects of the BrowserPlus C Service API are a little tricky.  First
+and foremost is mapping data into and out of the API.  This project contains
+a c++ wrapper class that makes the process much easier.
+
+As time goes on, the plan would be to aggregate other tools and frameworks
+into this project and simplify the authoring of native, cross platform,
+services.
+
+Source Code: [http://github.com/lloyd/bp-service-tools/tree](http://github.com/lloyd/bp-service-tools/tree)

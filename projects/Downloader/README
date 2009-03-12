@@ -1,0 +1,19 @@
+# Downloader
+
+A simple ruby service to allow webpages to download remote content
+locally.  This is useful in several scenarios, for instance pulling
+a remote image locally for editing within ImageAlter
+
+Usage is something like:
+~~~
+BrowserPlus.downloader.get({
+  url: "http://farm4.static.flickr.com/3576/3332027003_0cdedd5f7f.jpg?v=0"
+}, function(r) {
+  if (r.success) {
+    // r.value is a BrowserPlus filehandle
+  }
+});
+~~~
+
+Source: [http://github.com/lloyd/bp-downloader/tree/master](http://github.com/lloyd/bp-downloader/tree/master)
+

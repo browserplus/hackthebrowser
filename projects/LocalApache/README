@@ -1,0 +1,12 @@
+# LocalApache
+
+This service allows you to create a local Apache service instance (on
+OSX) so you can serve static content from your other services.
+
+Should be useful to create an offline website.
+
+Could be ported to Windows by including the Apache exe file.
+
+Author: Dav Glass
+
+Source Code: [http://github.com/davglass/bp-apache/tree/master](http://github.com/davglass/bp-apache/tree/master)

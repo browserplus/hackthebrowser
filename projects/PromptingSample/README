@@ -1,0 +1,15 @@
+# PromptingSample
+
+A little known capability of BrowserPlus is the ability to render
+custom HTML prompts that appear in the browser from within services.
+
+This feature could enable all sorts of interesting applications in 
+areas like
+* a better OAuth/OpenID flow
+* lightweight secure access to end user information (that *stays* out
+  of the reach of browser based JavaScript
+
+This little sample demonstrates how to render custom prompts to the 
+end user from inside a BrowserPlus service
+
+Source Code: [http://github.com/lloyd/bp-prompting-sample/tree/master](http://github.com/lloyd/bp-prompting-sample/tree/master)
