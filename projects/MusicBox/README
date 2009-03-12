@@ -1,8 +1,8 @@
 # MusicBox
 
-A service based on why the lucky stiff's bloopsaphone
-(http://github.com/why/bloopsaphone/tree/master), which exposes 
-arcade style tunes to browser based javascript.
+A service based on why the lucky stiff's
+[bloopsaphone](http://github.com/why/bloopsaphone/tree/master),
+which exposes arcade style tunes to browser based javascript.
 
 Usage will look something like this (to play the simpsons themesong,
 credit why's README):
