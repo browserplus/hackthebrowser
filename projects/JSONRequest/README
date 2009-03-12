@@ -1,0 +1,8 @@
+# JSONRequest
+
+A service for BrowserPlus that performs cross domain JSONRequest,
+inspired by Douglas Crockford, the spec in question is available here
+[http://json.org/JSONRequest.html](http://json.org/JSONRequest.html)
+
+Check out the source on github:
+[http://github.com/lloyd/bp-jsonrequest/tree/master](http://github.com/lloyd/bp-jsonrequest/tree/master)
