@@ -1,7 +1,7 @@
-body {font-family:verdana;}
-h1,h2,h3,h4,h5,h6 {font-family:arial;font-weight:bold; color:#555;}
+body {font-family:verdana;margin:0;}
+h1,h2,h3,h4,h5,h6 {margin:0;font-family:tahoma,arial;font-weight:bold; color:#666;}
 #bd {margin-top:5px;}
-#ft {clear:both;margin-top:20px;}
+#ft {clear:both;margin-top:20px;text-align:center;font-size:85%;border-top:1px solid #eee;padding:5px;}
 
 /* header and masthead */
 #hd {padding:10px 10px 0px 10px;}
@@ -14,7 +14,7 @@ h1,h2,h3,h4,h5,h6 {font-family:arial;font-weight:bold; color:#555;}
 #nav {margin-top:5px; font-size:13px; background:none; border-bottom:4px solid #4146b6;}
 #nav a {text-decoration:none;color:black;padding:0;margin:0;font-family:verdana;font-size:93%;letter-spacing:0.10em;}
 #nav ul {padding-left:5px;margin:0;}
-#nav ul li {float:left;margin:0;padding:0;background:#ddd;border-right:1px dotted #bbb;}
+#nav ul li {float:left;margin:0;padding:0;background:#ddd;border-right:1px dotted #bbb;list-style:none;}
 #nav ul li a {display:block;padding:3px 10px 3px 10px; border-bottom:1px solid #bbd;}
 #nav ul li a:hover {background-color:#777;}
 #nav ul li.on a {background:#EB5E00;color:#fff;font-weight:bold; border-bottom:1px solid #e96;}
@@ -23,10 +23,11 @@ h1,h2,h3,h4,h5,h6 {font-family:arial;font-weight:bold; color:#555;}
 
 p {margin:1em 0;}
 
-h1 {font-size:24px; color:#039; }
-h2 {font-size:20px; margin:1em 0; border-bottom:1px dotted #999;}
-h3 {font-size:16px; }
-h4 {font-size:14px; }
+
+h1 {font-size:167%; color:#039; }
+h2 {font-size:146.5%; margin-top:1.5em;/* border-bottom:1px dotted #999;*/}
+h3 {font-size:123.1%; }
+h4 {font-size:108%; }
 
 /* utilities */
 .clearfix { /* for IE */ zoom:1;}
@@ -43,12 +44,12 @@ h4 {font-size:14px; }
 .even {background:#fff;}
 
 /* secondary */
-.secondary { margin-top:30px; }
+.secondary { margin-top:5px; }
 
 .secondary .mod {
     background-color:#fbfbfb;
     border:1px solid #ccc;
-    margin:0 0 16px 0;
+    margin:0 0 20px 0;
     padding:10px 10px 10px 10px;
     color:#666;}
 
@@ -61,4 +62,25 @@ h4 {font-size:14px; }
 .ircsearchbox { margin:0 0 20px 10px;}
 .ircsearchlabel {font-weight:bold;font-family:arial;}
 
+.mod ul {
+    margin-left:0px;
+}
+.mod ul li {
+    list-style:none;
+    margin-left:0;
+    padding:1px;
+}
 
+.mod ul li.active {
+    -webkit-border-radius:4px;
+    background:#eef;
+    border:2px solid #ccc   ;
+    font-weight:bold;
+}
+
+pre {
+    background:#fbfbff;
+    padding:5px;
+    border:1px solid #dde;
+
+}

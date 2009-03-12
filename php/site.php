@@ -1,18 +1,21 @@
 <?php
+$PROJECTS_DIR = realpath($_SERVER['DOCUMENT_ROOT'] . "/../projects");
+
 define("NAV_HOME", "home");
 define("NAV_IRC", "irc");
-define("NAV_SERVICE", "service");
-define("NAV_BLOG", "blog");
-define("NAV_ABOUT", "about");
+define("NAV_PROJECT", "project");
+
+
+
+
 define("COLS_1", "col_1");
 define("COLS_2", "col_2");
 
 $SITE_MENU = array(
-    NAV_HOME    => array("/", "Home"),
-    NAV_IRC     => array("/irc/", "IRC"),
-    NAV_SERVICE => array("/services/", "Services"),
-    NAV_BLOG    => array("/blog/", "Blog"),
-    NAV_ABOUT   => array("/about/", "About")
+    NAV_HOME    => array("/",          "Home"),
+    NAV_IRC     => array("/irc/",      "IRC"),
+    NAV_PROJECT => array("/projects/", "Projects")
+
 );
 
 // escape html text
@@ -122,7 +125,7 @@ echo <<< EOS
     <title>$page_title</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset-fonts-grids/reset-fonts-grids.css&2.7.0/build/base/base-min.css"> 
     <link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
 <body>
@@ -154,6 +157,18 @@ function site_sidebar()
     echo "<div class=\"yui-b secondary\">";
 }
 
+function site_mod($title, $body, $clz="")
+{
+    $clz = $clz ? "class=\"$clz\"" : "";
+    
+    echo <<< EOS
+    <div class="mod">
+      <div class="hd"><h4>$title</h4></div>
+      <div class="bd $clz">$body</div>
+    </div>
+EOS;
+}
+
 function site_footer()
 {
     global $__NumCols__;
@@ -163,10 +178,21 @@ function site_footer()
     echo <<< EOS
             $ending_divs
         </div>
-        <div id="ft">FOOTER IS HERE</div>
+        <div id="ft">&copy;2009 hackthebrowser.org</div>
     </div>
 </body>
 </html>
 EOS;
 }
+
+function rglob($pattern='*', $path='', $flags = 0)
+{
+    $paths = glob($path.'*', GLOB_MARK|GLOB_ONLYDIR|GLOB_NOSORT);
+    $files = glob($path.$pattern, $flags);
+    foreach ($paths as $path) { 
+        $files = array_merge($files, rglob($pattern, $path, $flags)); 
+    }
+    return $files;
+}
+
 ?>
