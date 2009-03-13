@@ -3,5 +3,5 @@
 for x in ../projects/*/meta.json; do
     dir=`dirname $x`
     dir=`basename $dir`
-    curl -s http://localhost/fetch/$dir/commit > /dev/null
+    curl -s http://hackthebrowser.org/fetch/$dir/commit > /dev/null
 done    
