@@ -219,21 +219,15 @@ function site_projects($project=null)
     site_mod("Projects", $str);
 }
 
-function fetch($key, $url, $ttl=0)
+function fetch($key, $url)
 {
-    echo "FETCH(ttl=$ttl) $key<br>";
-    $data = apc_fetch($key);
-    if (!$data) {
-        $ch = curl_init($url);
-        ob_start();
-        curl_exec ($ch);
-        curl_close ($ch);
-        $data = ob_get_clean();
-        echo "...storing (ttl=$ttl) $url<br>";
-        apc_store($key, $data, $ttl);
-    }
-    
-    echo "return data for $key<br>";
+    $ch = curl_init($url);
+    ob_start();
+    curl_exec ($ch);
+    curl_close ($ch);
+    $data = ob_get_clean();
+    apc_store($key, $data, 0);
+
     return $data;
 }
 
