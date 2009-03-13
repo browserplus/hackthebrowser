@@ -7,5 +7,3 @@ a c++ wrapper class that makes the process much easier.
 As time goes on, the plan would be to aggregate other tools and frameworks
 into this project and simplify the authoring of native, cross platform,
 services.
-
-Source Code: [http://github.com/lloyd/bp-service-tools/tree](http://github.com/lloyd/bp-service-tools/tree)

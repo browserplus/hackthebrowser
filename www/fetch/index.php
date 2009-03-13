@@ -45,8 +45,8 @@ if (preg_match("/^commits?$/", $type) && $json["url"]) {
             $user = $arr[1];
             $repository = $arr[2];
             $object = "master";
-            
-            $data = fetch("http://github.com/api/v1/json/$user/$repository/$type/$object");
+
+            $data = fetch("{$project}/commit", "http://github.com/api/v1/json/$user/$repository/$type/$object");
             
             print "<pre>";
             print_r(json_decode($data, 1));

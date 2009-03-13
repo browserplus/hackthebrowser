@@ -15,5 +15,3 @@ BrowserPlus.downloader.get({
 });
 ~~~
 
-Source: [http://github.com/lloyd/bp-downloader](http://github.com/lloyd/bp-downloader)
-

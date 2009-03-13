@@ -3,9 +3,3 @@
 A service to allow easy access to a jslint webservice.  This could
 be useful in a variety of scenarios, one of which would be a little
 bookmarklet to jslint a page.
-
-Author: Dav Glass
- 
-Source Code: [http://github.com/davglass/bp-jslint](http://github.com/davglass/bp-jslint)
-
-

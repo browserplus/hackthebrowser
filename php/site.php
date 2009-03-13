@@ -219,10 +219,10 @@ function site_projects($project=null)
     site_mod("Projects", $str);
 }
 
-function fetch($url, $ttl=3600)
+function fetch($key, $url, $ttl=0)
 {
-    echo "FETCH(ttl=$ttl) $url<br>";
-    $data = apc_fetch($url);
+    echo "FETCH(ttl=$ttl) $key<br>";
+    $data = apc_fetch($key);
     if (!$data) {
         $ch = curl_init($url);
         ob_start();
@@ -230,10 +230,10 @@ function fetch($url, $ttl=3600)
         curl_close ($ch);
         $data = ob_get_clean();
         echo "...storing (ttl=$ttl) $url<br>";
-        apc_store($url, $data, $ttl);
+        apc_store($key, $data, $ttl);
     }
     
-    echo "return data for $url<br>";
+    echo "return data for $key<br>";
     return $data;
 }
 

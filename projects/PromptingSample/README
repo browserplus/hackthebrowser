@@ -12,5 +12,3 @@ areas like:
 
 This little sample demonstrates how to render custom prompts to the 
 end user from inside a BrowserPlus service
-
-Source Code: [http://github.com/lloyd/bp-prompting-sample/tree/master](http://github.com/lloyd/bp-prompting-sample/tree/master)

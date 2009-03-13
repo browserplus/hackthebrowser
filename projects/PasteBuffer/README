@@ -1,7 +1,3 @@
 # PasteBuffer
 
 This plugin grabs an image from your clipboard and returns it to the browser. 
-
-Author: Dav Glass
-
-Source Code: [http://github.com/davglass/bp-pastebuffer](http://github.com/davglass/bp-pastebuffer)

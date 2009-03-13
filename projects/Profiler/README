@@ -5,5 +5,3 @@ performance of in-browser javascript, in terms of cpu and memory usage.
 
 This project includes a couple different services and several tests and
 examples.
-
-Source Code: [http://github.com/davglass/bp-profiler](http://github.com/davglass/bp-profiler)
