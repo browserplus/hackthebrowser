@@ -11,4 +11,4 @@ BrowserPlus.MusicBox.play({notes: "32 + C E F# 8:A G E C - 8:A 8:F# 8:F# 8:F# 2:
                           function() { /*all done playing*/);
 ~~~
 
-Check out the source on github: [http://github.com/lloyd/bp-bloopsaphone/tree/master](http://github.com/lloyd/bp-bloopsaphone/tree/master)
+Check out the source on github: [http://github.com/lloyd/bp-bloopsaphone](http://github.com/lloyd/bp-bloopsaphone)

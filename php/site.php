@@ -219,4 +219,22 @@ function site_projects($project=null)
     site_mod("Projects", $str);
 }
 
+function fetch($url, $ttl=3600)
+{
+    echo "FETCH(ttl=$ttl) $url<br>";
+    $data = apc_fetch($url);
+    if (!$data) {
+        $ch = curl_init($url);
+        ob_start();
+        curl_exec ($ch);
+        curl_close ($ch);
+        $data = ob_get_clean();
+        echo "...storing (ttl=$ttl) $url<br>";
+        apc_store($url, $data, $ttl);
+    }
+    
+    echo "return data for $url<br>";
+    return $data;
+}
+
 ?>
