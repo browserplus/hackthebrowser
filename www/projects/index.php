@@ -43,19 +43,8 @@ else:
 endif;
 ?>
 
-<?php site_sidebar(); ?>
-
 <?php 
-
-$str = "<ul>";
-foreach(rglob("README", $PROJECTS_DIR) as $f) {
-    $dir = basename(dirname(realpath($f)));
-    $clz = ($project == $dir) ? "class=\"active\"" : "";
-    $str .= "<li $clz><a href=\"/projects/$dir/\">$dir</a></li>";
-}
-$str .= "</ol>";
-
-site_mod("Projects", $str);
+site_sidebar(); 
+site_projects($project);
+site_footer(); 
 ?>
-
-<?php site_footer(); ?>

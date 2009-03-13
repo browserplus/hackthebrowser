@@ -66,15 +66,8 @@ site_header(NAV_HOME, "Hack the Browser", COLS_2);
 </p>
 
 <?php 
-$str = "<ul>";
-foreach(rglob("README", $PROJECTS_DIR) as $f) {
-    $dir = basename(dirname(realpath($f)));
-    $str .= "<li><a href=\"/projects/$dir/\">$dir</a></li>";
-}
-$str .= "</ol>";
-
 site_sidebar();
-site_mod("Projects", $str); 
+site_projects(); 
 ?>
 
 <?php site_footer(); ?>
