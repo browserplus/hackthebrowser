@@ -88,7 +88,7 @@ else:
 <h1>Projects</h1>
 
 <p>
-    HackTheBrowser develops on <a href="http://www.github.com">GitHub</a>.
+    The big bucket of projects!  Click a link on the right to get started.
 </p>
 
 <?php
