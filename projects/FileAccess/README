@@ -1,0 +1,47 @@
+# FileAccess
+
+FileAccess is an in production service that allows a webpage to get portions
+of a file, or urls of content that an end user selects via File Browse or 
+drag and drop.
+
+This project is geared at impelmenting a fully open source version of file
+access that includes new features, such as the ability to get a byte range
+of a selected file and return a novel file handle.  This feature would enable
+resumable uploads.
+
+The new proposed interface, backwards compatible,  looks like this:
+~~~
+Describing corelet 'FileAccess', version: 1.1.0
+   Access the contents of files that the user has selected.
+
+3 function(s) supported:
+   Read:
+      Read up to 2mb of a file on disk.  You may specify offset and length.
+
+         path file
+            The file that you would like to read from.
+         [integer offset]
+            The option byte offset at which you like to start
+            reading.
+         [integer size]
+            The amount of data to read in bytes
+   GetURL:
+      Get a localhost url that can be used to attain the full contents of a
+      file on disk.
+
+         path file
+            The file that you would like to read via a
+            localhost url.
+   GetChunk:
+      Attain a chunk (or byte range) of the specified file.
+
+         path file
+            The file that you would like to get a chunk out
+            of.
+         [integer offset]
+            The optional byte offset at which you like to
+            start reading.
+         [integer size]
+            The amount of data to read in bytes
+~~~
+
