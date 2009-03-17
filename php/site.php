@@ -208,7 +208,9 @@ function site_projects($project=null)
 {
     global $PROJECTS_DIR;
     $str = "<ul>";
-    foreach(sort(rglob("README", $PROJECTS_DIR)) as $f) {
+    $dirs = rglob("README", $PROJECTS_DIR);
+	sort($dirs);
+    foreach($dirs as $f) {
         $dir = basename(dirname(realpath($f)));
         $clz = ($project == $dir) ? "class=\"active\"" : "";
         $str .= "<li $clz><a href=\"/projects/$dir/\">$dir</a></li>";
