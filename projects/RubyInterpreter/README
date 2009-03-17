@@ -1,0 +1,19 @@
+# RubyInterpreter
+
+BrowserPlus is designed to support the notion of "provider" and
+"dependent" services.  This platform feature allows interpreter
+services to be written which support writing other services in 
+high level languages.
+
+The RubyInterpreter project is currently focused on building the 
+next iteration of the RubyInterpreter which is based on ruby 1.9.1
+and targets the following features
+
+1. bp_require is silly, we should be able to require()
+2. dependent services should be able to include native extensions
+3. performance improvements (seek help to solve the "select problem")
+4. upgrade to ruby 1.9.1 stable (better i18n support, etc, etc)
+5. more built in extensions to the ruby environment (including the ability to use other services from a ruby service)
+6. ability to ship byte compiled ruby for obfuscation (closed source code sucks, more for obfuscating api keys, and faster load times)
+7. include why the lucky stiff's (in spirit at least) simplifications to writing ruby services
+
