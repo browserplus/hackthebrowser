@@ -1,0 +1,12 @@
+# ScreenReader
+
+First explorations into improving accessibility on the web, this 
+service is capable of detecting whether, and which screen-reader the 
+user is using, from a web-page.
+
+According to Dav, it detects the following readers:
+
+* Jfw.exe — JAWS For Windows screen reader.
+* wineyes.exe — Window-eyes screen reader.
+* nvda.exe — NVDA scree nreader.
+* zt.exe — Zoomtext screen magnifier.
