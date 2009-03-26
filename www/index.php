@@ -1,5 +1,5 @@
 <?php
-require "/usr/local/www/hackthebrowser.org/php/site.php";
+require "../php/site.php";
 site_header(NAV_HOME, "Hack the Browser", COLS_2);
 ?>
 

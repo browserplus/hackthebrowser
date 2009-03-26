@@ -1,6 +1,6 @@
 <?php
-require "/usr/local/www/hackthebrowser.org/php/site.php";
-require "/usr/local/www/hackthebrowser.org/php/markdown/markdown.php";
+require "../../php/site.php";
+require "../../php/markdown/markdown.php";
 
 function cf($title, $arr, $key, $abbrev) {
 
@@ -58,7 +58,26 @@ if ($project && $readme):
         $source = $json["url"];
         $readme .= "\n### Source Code\n[$source]($source)\n\n";
 
-        $commit = apc_fetch($project . "/commit");
+        $commit = null;
+		if (function_exists("apc_fetch")) {
+            $commit = apc_fetch($project . "/commit");
+        }
+
+		// fetch github info if we can
+        if (preg_match("|^http://github.com/([^/]+)/([^/]+)|", $source, $arr))
+		{
+            if (count($arr) >= 3) {
+                $user = $arr[1];
+                $repository = $arr[2];
+                $object = "master";
+
+                $commit = fetch("{$project}/commit", "http://github.com/api/v1/json/$user/$repository/commit/$object");
+            }
+        }
+
+		if (function_exists("apc_store")) {
+            $commit = apc_fetch($project . "/commit");
+        }
 
         if (strlen($commit) > 1) {
             $commit = json_decode($commit, 1);

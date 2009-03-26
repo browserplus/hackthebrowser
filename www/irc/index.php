@@ -1,7 +1,7 @@
 <?php
-require "/usr/local/www/hackthebrowser.org/php/site.php";
-require "/usr/local/www/hackthebrowser.org/php/db.php";
-require "/usr/local/www/hackthebrowser.org/php/irc.php";
+require "../../php/site.php";
+require "../../php/db.php";
+require "../../php/irc.php";
 
 // Number of IRC Rows to show -- 500 is max, limited by chat_last_n_rows() in db.php
 define("NUM_IRC_ROWS", 150);

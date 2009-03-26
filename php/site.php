@@ -228,7 +228,9 @@ function fetch($key, $url)
     curl_exec ($ch);
     curl_close ($ch);
     $data = ob_get_clean();
-    apc_store($key, $data, 0);
+	if (function_exists("apc_store")) {
+        apc_store($key, $data, 0);
+    }
 
     return $data;
 }
