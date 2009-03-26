@@ -1,0 +1,22 @@
+# LocalCache
+
+This project is just an idea.
+
+This project would be a complement to ResourceBunder.  In the case where
+you want to cache restful resources for faster load times, but do not
+have a large body of work that may be generally usable, you may not want
+to bundle resources in 
+
+The usage of a high level abstraction built on this could be something like
+YUI's async loader:
+
+    BPLoader.load({
+       js: [ "http://foo.com/foo.js" ]
+       css: [ "http://foo.com/foo.css" ]
+	}, function (x) {
+        // all of your resources have been loaded!  carry on
+    });
+
+The benefit of a wrapper like this is that you could use it wether or not
+your users have browserplus, and it will just do the right thing.  The 
+wrapper could also leverage other technologies for client side caching.
