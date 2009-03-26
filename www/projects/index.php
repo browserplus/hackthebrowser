@@ -109,7 +109,24 @@ else:
 <h1>Projects</h1>
 
 <p>
-    The big bucket of projects!  Click a link on the right to get started.
+    The big bucket of projects!  Click a link on the right to browser
+	project details.  This is all the open source work we know about thats
+	going on right now.  Note that some of these are libraries or tools,
+	some are integration projects, and most are BrowserPlus services.
+</p>
+<p>
+    Interested in participating?  We've color coded the projects:
+	<span style="color:#A31B21;">red ones</span> are not getting 
+	much attention or love right now, and perhaps the authors have cried
+	out for help.  <span style="color:#DDB81E;">yellow projects</span> are
+	plugging along but there's plenty of room in the sandbox.  Finally,
+	the <span style="color:#5F860E;">green stuff</span> is rocking, and
+	in or close to in production or for libraries and tools, they're
+	usable now.
+</p>
+<p>
+    Wanna get something listed?  Drop us a line at browserplus-feedback
+	AT yahoo-inc d0t com.
 </p>
 
 <?php
