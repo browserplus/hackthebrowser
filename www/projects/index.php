@@ -50,13 +50,14 @@ if (isset($_GET['__route__'])) {
 }
 
 if ($project && $readme):
-
-
     if ($meta):
 
         $json = json_decode($meta, 1);
-        $source = $json["url"];
-        $readme .= "\n### Source Code\n[$source]($source)\n\n";
+        $source = null;
+		if (array_key_exists("url", $json)) {
+          $source = $json["url"];
+          $readme .= "\n### Source Code\n[$source]($source)\n\n";
+        }
 
         $commit = null;
 		if (function_exists("apc_fetch")) {
@@ -64,7 +65,8 @@ if ($project && $readme):
         }
 
 		// fetch github info if we can
-        if (preg_match("|^http://github.com/([^/]+)/([^/]+)|", $source, $arr))
+        if ($source &&
+		    preg_match("|^http://github.com/([^/]+)/([^/]+)|", $source, $arr))
 		{
             if (count($arr) >= 3) {
                 $user = $arr[1];

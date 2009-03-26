@@ -1,0 +1,29 @@
+# ResourceServer
+
+This project is just an idea.
+
+For improving the performance of websites, it would be cool if we
+could generate little BrowserPlus services consisting of libraries of 
+web resources.  Imagine if YUI could be bundled up into a versioned 
+service.  
+
+The problem here is we wouldn't want to have to build in a webserver 
+every time we want to make one of these packages... So the notions of
+"provider" and "dependent" services could be useful here.  The provider
+called something like "ResourceServer" can be used by dependent services.
+essentially all you would have to do is write a manifest.json file that
+requires "ResourceServer", and pass ResourceServer an argument in that 
+json file that specifies which directories are to be served.
+
+ResourceServer: in Turn would build that packages api, which could be
+something like:
+
+    BrowserPlus.YUI.get({file:"/build/foo.js"}, function(r) {
+      // r.value now contains http://localhost:15743/build/foo.js 
+	});
+
+Implementation suggestions
+
+1. go native
+2. use [mongoose](http://code.google.com/p/mongoose/)
+3. Lloyd has already written [a ruby script to fetch and build mongoose](http://github.com/lloyd/bp-fileaccess/tree/01d54982f3174b85ae88515586a1fedcb0908b31/external/mongoose)

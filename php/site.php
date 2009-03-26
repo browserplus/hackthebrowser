@@ -5,9 +5,6 @@ define("NAV_HOME", "home");
 define("NAV_IRC", "irc");
 define("NAV_PROJECT", "project");
 
-
-
-
 define("COLS_1", "col_1");
 define("COLS_2", "col_2");
 
@@ -212,7 +209,22 @@ function site_projects($project=null)
 	sort($dirs);
     foreach($dirs as $f) {
         $dir = basename(dirname(realpath($f)));
-        $clz = ($project == $dir) ? "class=\"active\"" : "";
+
+		// parse the json project file to determine status
+		$json = file_get_contents(dirname(realpath($f)) . "/meta.json");
+        $clz = "";
+		if ($json) {
+		    $json = json_decode($json, 1);
+            if ($json && array_key_exists("status", $json)) {
+                $clz = "class=\"" . $json["status"] . "\"";
+            }
+        
+        }
+        if ($project == $dir) {
+            // we'll overwrite the project status if the project is
+			// currently selected
+            $clz = "class=\"active\"";
+        }
         $str .= "<li $clz><a href=\"/projects/$dir/\">$dir</a></li>";
     }
 

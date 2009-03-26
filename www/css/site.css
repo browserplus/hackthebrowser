@@ -78,6 +78,18 @@ h4 {font-size:108%; }
     font-weight:bold;
 }
 
+.mod ul li.red a {
+    color:#A31B21;
+}
+
+.mod ul li.yellow a {
+    color:#DDB81E;
+}
+
+.mod ul li.green a {
+    color:#5F860E;
+}
+
 pre {
     background:#fbfbff;
     padding:5px;
