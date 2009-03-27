@@ -7,11 +7,12 @@ function db()
     static $db;
 
     if (!isset($db)) {
-        if ($_SERVER["HTTP_HOST"] == "hackthebrowser.org") {
-            $db = new PDO("mysql:host=mysql50.hub.org;dbname=720_hackthebrowser", "720_htb", "h4cky");
-        } else {
-            $db = new PDO("mysql:host=localhost;dbname=irc", "root", "");            
-        }
+         $dbson= json_decode(file_get_contents("/home/hackthebrowser/dbpasswd.json"), true);
+         $db = new PDO("mysql:" .
+             "host=" . $dbson["server"] . ";" .
+             "dbname=" . $dbson["db"],
+             $dbson["user"],
+             $dbson["pass"]);
     }
 
     return $db;
