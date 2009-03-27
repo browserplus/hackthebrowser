@@ -5,7 +5,7 @@
 require "mysql"
 require "json/json.rb"
 
-connInfo = JSON.parse("/home/hackthebrowser/dbpasswd.json")
+connInfo = JSON.parse(File.read("/home/hackthebrowser/dbpasswd.json"))
 
 my = Mysql::new(connInfo["server"], connInfo["user"],
                 connInfo["pass"], connInfo["db"])
