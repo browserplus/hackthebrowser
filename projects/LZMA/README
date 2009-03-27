@@ -1,0 +1,20 @@
+# LZMA
+
+LZMA is an advanced compression algorithm that's commonly found in 
+installer products.  It's properties include:
+
+1. Way [better compression](http://gist.github.com/59923).  File sizes can be 60% of what bzip2 can do.
+2. Greater CPU cost for compression (than gzip or bzip)
+3. Greater memory requirements for both compression and decompression (than gzip or bzip) 
+
+These tradeoffs seem perfect for the web.  I'd rather do the compression on 
+my own machine before sending the bits over the net, and decompression is
+very fast, on par with bzip2.  This all suggests to me that an optimal
+upload solution will involve LZMA.
+
+The (easylzma project on github)[http://lloyd.github.com/easylzma/] tames
+the source into something easy to use, and is public domain.  Wrapping this
+thing into a service that accepts and returns a filehandle should be a 
+pretty quick project!
+
+Any takers?
