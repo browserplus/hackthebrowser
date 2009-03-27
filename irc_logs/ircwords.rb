@@ -3,7 +3,12 @@
 # talking about today, this week, and this month
 
 require "mysql"
-my = Mysql::new("mysql50.hub.org", "720_htb", "h4cky", "720_hackthebrowser")
+require "json/json.rb"
+
+connInfo = JSON.parse("/home/hackthebrowser/dbpasswd.json")
+
+my = Mysql::new(connInfo["server"], connInfo["user"],
+                connInfo["pass"], connInfo["db"])
 
 NUM_TOP_WORDS = 100
 MIN_LETTERS = 4
