@@ -1,0 +1,17 @@
+h2. What?
+
+hackthebrowser.org is a repository of open source work happening
+that's related to BrowserPlus.  This repository contains the site 
+code for HackTheBrowser.org.
+
+h2. Why?
+
+We've got a ton of ideas about what we want to grow HackTheBrowser
+into, like it should be drag and drop easy to publish a service 
+to HTB.  Then HTB would be a full fledged development repository of 
+services that you could point BrowserPlus at.
+
+Currently, however, the site is a simple static index of BrowserPlus
+services, and a repository of our public IRC chatter.
+
+So wanna add a project?  Just fork us.
