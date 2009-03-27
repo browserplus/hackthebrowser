@@ -12,7 +12,7 @@ my own machine before sending the bits over the net, and decompression is
 very fast, on par with bzip2.  This all suggests to me that an optimal
 upload solution will involve LZMA.
 
-The (easylzma project on github)[http://lloyd.github.com/easylzma/] tames
+The [easylzma project on github](http://lloyd.github.com/easylzma/) tames
 the source into something easy to use, and is public domain.  Wrapping this
 thing into a service that accepts and returns a filehandle should be a 
 pretty quick project!
