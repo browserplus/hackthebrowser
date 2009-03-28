@@ -2,7 +2,10 @@
 
 [Comet](http://en.wikipedia.org/wiki/Comet_(programming)) in BrowserPlus?  Yes we can!
 
-I suggest we implement some of [this](http://www.whatwg.org/specs/web-apps/current-work/#network).
+Steve, here. So it's Friday afternoon and I felt like doing something fun. 
+Introducting bp-websocket. Browser push resurrected with BrowserPlus. Hah!
 
-Takers?  Especially curious about apache/server support, as the client could be a trivial bit of ruby.
+Data pushed via server is immediately seen in JavaScript callback.  Just say no to polling.
 
+Sample command line ruby server and client included.  You can also just telnet to 
+localhost:2626 for fun.
