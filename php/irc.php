@@ -1,5 +1,5 @@
 <?php
-define("IRC_PATH", "/usr/local/www/hackthebrowser.org/irc_logs/");
+define("IRC_PATH", "/home/websites/hackthebrowser/irc_logs/");
 
 /*
  * Get an array of "hot" irc words.

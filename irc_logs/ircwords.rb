@@ -1,4 +1,4 @@
-#!/usr/local/bin/ruby
+#!/usr/bin/env ruby
 # interact with mysql to determine the most interesting things we're 
 # talking about today, this week, and this month
 
