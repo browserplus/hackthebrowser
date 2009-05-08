@@ -15,3 +15,4 @@ Currently, however, the site is a simple static index of BrowserPlus
 services, and a repository of our public IRC chatter.
 
 So wanna add a project?  Just fork us.
+
