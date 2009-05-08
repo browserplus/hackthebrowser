@@ -1,0 +1,13 @@
+# Bonjour
+
+Alex MacCaw recently implemented a Bonjour service, which lets you
+discover other devices on the local network which support the Bonjour
+protocol, as well as register as a device yourself.  
+
+The api is [simple and beautiful](http://github.com/maccman/bp-bonjour/blob/23e7dc99c341c9bdcce40d50b16df15750591d4c/bonjour.rb) -- register yourself
+as a bonjour service for discovery or browser for other services.
+
+This seems like the first step toward ad-hoc local network peer to peer,
+and opens a ton of other possiblities...
+
+Bravo Alex!
