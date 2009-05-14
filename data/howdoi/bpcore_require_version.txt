@@ -1,0 +1,8 @@
+Currently we don't have any built in mechanisms to require a certain platform version, nor force an update.
+
+But you can do it at the page level with [getPlatformInfo()](http://browserplus.yahoo.com/developer/web/api/#bpgetplatforminfo).
+
+This will let you get the platform version, and appropriately message the end user, or refuse to run the page.
+
+Alternatively, you should see that your regular users are updated within 48 hours if they use your service at least once a day, I'll dig up and repost the precise update logic in browserplus to give you a concrete idea how it works
+

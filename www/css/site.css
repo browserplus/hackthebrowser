@@ -29,6 +29,8 @@ h2 {font-size:146.5%; margin-top:1.5em;/* border-bottom:1px dotted #999;*/}
 h3 {font-size:123.1%; }
 h4 {font-size:108%; }
 
+pre {background:#fbfbff; padding:5px;border:1px solid #dde;}
+
 /* utilities */
 .clearfix { /* for IE */ zoom:1;}
 .clearfix:after { /* for Others */ content:"."; display:block; height:0; clear:both; visibility:hidden; }
@@ -45,14 +47,7 @@ h4 {font-size:108%; }
 
 /* secondary */
 .secondary { margin-top:5px; }
-
-.secondary .mod {
-    background-color:#fbfbfb;
-    border:1px solid #ccc;
-    margin:0 0 20px 0;
-    padding:10px 10px 10px 10px;
-    color:#666;}
-
+.secondary .mod {background:#fbfbfb;border:1px solid #ccc; margin:0 0 20px 0; padding:10px 10px 10px 10px; color:#666;}
 .secondary .mod a {text-decoration:none;color:#005288;}
 .secondary .mod a:hover {text-decoration:underline;}
 .secondary .mod .hd h4 {text-align:left;text-transform:uppercase;border-bottom:1px dotted #999;}
@@ -62,37 +57,14 @@ h4 {font-size:108%; }
 .ircsearchbox { margin:0 0 20px 10px;}
 .ircsearchlabel {font-weight:bold;font-family:arial;}
 
-.mod ul {
-    margin-left:0px;
-}
-.mod ul li {
-    list-style:none;
-    margin-left:0;
-    padding:1px;
-}
+.mod ul { margin-left:0px; }
+.mod ul li { list-style:none; margin-left:0; padding:1px;}
+.mod ul li.active { -webkit-border-radius:4px; background:#eef; border:2px solid #ccc; font-weight:bold;}
+.mod ul li.red a { color:#A31B21;}
+.mod ul li.yellow a {color:#DDB81E;}
+.mod ul li.green a {color:#5F860E;}
 
-.mod ul li.active {
-    -webkit-border-radius:4px;
-    background:#eef;
-    border:2px solid #ccc   ;
-    font-weight:bold;
-}
-
-.mod ul li.red a {
-    color:#A31B21;
-}
-
-.mod ul li.yellow a {
-    color:#DDB81E;
-}
-
-.mod ul li.green a {
-    color:#5F860E;
-}
-
-pre {
-    background:#fbfbff;
-    padding:5px;
-    border:1px solid #dde;
-
-}
+.topics ol {}
+.topics ol li {font-size:108%;padding:5px 0;}
+.topics a:link {color:#028;}
+.topics a:visited {color:#028;}

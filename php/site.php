@@ -1,18 +1,23 @@
 <?php
-$PROJECTS_DIR = realpath($_SERVER['DOCUMENT_ROOT'] . "/../projects");
+$PROJECTS_DIR = realpath($_SERVER['DOCUMENT_ROOT'] . "/../data/projects");
+$HOWDOI_DIR   = realpath($_SERVER['DOCUMENT_ROOT'] . "/../data/howdoi");
 
 define("NAV_HOME", "home");
 define("NAV_IRC", "irc");
 define("NAV_PROJECT", "project");
+define("NAV_HOWDOI", "howdoi");
 
 define("COLS_1", "col_1");
 define("COLS_2", "col_2");
 
+define("AJAX_JS", '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/yahoo-dom-event/yahoo-dom-event.js"></script><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/connection/connection-min.js"></script>');
+
+
 $SITE_MENU = array(
     NAV_HOME    => array("/",          "Home"),
     NAV_IRC     => array("/irc/",      "IRC"),
-    NAV_PROJECT => array("/projects/", "Projects")
-
+    NAV_PROJECT => array("/projects/", "Projects"),
+    NAV_HOWDOI  => array("/howdoi/",   "How Do I...")
 );
 
 // escape html text
@@ -88,7 +93,7 @@ function emoticonize_text($string)
     return str_replace($search, $replace, $string);
 }
 
-function site_header($selected_tab, $page_title, $cols)
+function site_header($selected_tab, $page_title, $cols, $extra_header="")
 {
     global $SITE_MENU, $__NumCols__;
 
@@ -124,6 +129,7 @@ echo <<< EOS
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset-fonts-grids/reset-fonts-grids.css&2.7.0/build/base/base-min.css"> 
     <link rel="stylesheet" type="text/css" href="/css/site.css">
+    $extra_header
 </head>
 <body>
     <div id="doc3" $cols_clz>
@@ -172,23 +178,34 @@ function site_footer()
 
     $ending_divs = ($__NumCols__ == COLS_2) ? "</div>" : "</div></div>";
 
-    echo <<< EOS
+    // don't add google tracking to steve's dev machine
+    if (preg_match("|^/Users/spencers/|", $_SERVER["DOCUMENT_ROOT"])) {
+        echo <<< EOS
+            $ending_divs
+        <div id="ft">&copy;2009 hackthebrowser.org</div>
+    </div>
+</body>
+</html>
+EOS;
+    } else {
+        echo <<< EOS
             $ending_divs
         </div>
         <div id="ft">&copy;2009 hackthebrowser.org</div>
     </div>
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-7889645-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-7889645-1");
+        pageTracker._trackPageview();
+    } catch(err) {}</script>
 </body>
 </html>
 EOS;
+    }
 }
 
 function rglob($pattern='*', $path='', $flags = 0)

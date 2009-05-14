@@ -1,0 +1,16 @@
+[
+	{
+		"question": "How do I use BrowserPlus only if the user already has it installed?",
+		"file": "bp_init_progressive"
+	},
+	
+	{
+		"question": "How do I get BrowserPlus to display an installation dialog if it is not already installed?",
+		"file": "bp_init_dialog"
+	},
+	
+	{ 
+		"question": "How do I require a specific browserplus platform version?",
+		"file": "bpcore_require_version"
+	}
+]

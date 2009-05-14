@@ -1,0 +1,15 @@
+If users have to have BrowserPlus installed to use a webpage, use the [BrowserPlus Installer](http://browserplus.yahoo.com/developer/web/toolbox/installer/) to present the
+user with a graphical dialog that guides through installation.  If BrowserPlus is already
+installed, then no dialog is presented.
+
+~~~~
+<script src="http://bp.yahooapis.com/2.3.1/browserplus-min.js"></script>  
+<script src="http://bp.yahooapis.com/toolbox/installer/1.0.10/install-min.js"></script>  
+<script>
+BPTool.Installer.show({}, function(result){
+    if (result.success) {
+        // page is ready, require services and go
+    }
+});
+</script>
+~~~~
