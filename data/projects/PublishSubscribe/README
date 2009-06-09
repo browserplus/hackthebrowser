@@ -1,0 +1,5 @@
+# PublishSubscribe
+
+The start of a service similar to HTML5 cross document messaging.  Can send and receive
+JSON messages from one browser window to another (across browsers too - say from Safari 
+to Firefox.)  There is no message store, so you have to be connected to see the messages.
