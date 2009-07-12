@@ -1,0 +1,33 @@
+{
+  // optional, 'width' of puzzle
+  "width":  700,
+  // optional, 'height' of puzzle
+  "height": 300,
+  // optional, radius of ball
+  "ballRadius": 15,
+  // optional, size of holes
+  "holeRadius": 15,
+  // required, start point
+  "start":  [ 15,135 ],
+  // required, finish point
+  "finish": [ 655, 130 ],
+  // optional, array of pairs of points specifying walls
+  "walls": [
+  ],
+  // optional, array of points specifying holes
+  "holes": [
+	  [20, 80],	  [20, 180],
+ 	  [70, 80], 	  [70, 180],
+	  [120, 80],	  [120, 180],
+	  [170, 80],	  [170, 180],
+ 	  [220, 80], 	  [220, 180],
+	  [270, 80],	  [270, 180],
+	  [320, 80],	  [320, 180],
+ 	  [370, 80], 	  [370, 180],
+	  [420, 80],	  [420, 180],
+	  [470, 80],	  [470, 180],
+ 	  [520, 80], 	  [520, 180],
+	  [570, 80],	  [570, 180],
+ 	  [620, 80], 	  [620, 180]
+    ]
+}
