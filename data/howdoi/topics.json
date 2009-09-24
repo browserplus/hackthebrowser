@@ -12,5 +12,9 @@
 	{ 
 		"question": "How do I require a specific browserplus platform version?",
 		"file": "bpcore_require_version"
+	},
+	{ 
+		"question": "How do I find BrowserPlus logs?",
+		"file": "logfile_location"
 	}
 ]
