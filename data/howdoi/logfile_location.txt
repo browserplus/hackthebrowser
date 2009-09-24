@@ -1,9 +1,9 @@
-BrowserPlus has a logfile that captures inforamation while it's running.
-Including some part of this logfile in problem reports helps us to 
-diagnose many problems.  The logfile lives in a _user scoped_ location
-on your disk, and that location is platform dependent.
+BrowserPlus has a logfile that captures information while it's
+running.  Including this logfile in problem reports can help the
+reader to diagnose many issues.  The logfile lives in a _user scoped_
+location on your disk, and that location is platform dependent.
 
-On OSX 10.4 to 10.6 you can find the logfile here:
+On OSX 10.4, 10.5, and 10.6 you can find the logfile here:
 
     ~/Library/Application Support/Yahoo!/BrowserPlus/<version>/<guid>/*.log
 
