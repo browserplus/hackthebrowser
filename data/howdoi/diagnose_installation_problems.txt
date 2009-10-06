@@ -1,0 +1,20 @@
+If BrowserPlus installation problems occur, your best friend is the installer log.  
+
+On OSX 10.4, 10.5, and 10.6 you can find the logfile here:
+
+    ~/Library/Caches/TemporaryItems/BrowserPlusInstaller.log
+
+On Windows XP you can find the logfile here:
+
+    C:\Documents and Settings\<user>\Local Settings\Temp\BrowserPlusInstaller.log
+
+Finally on Windows Vista and Windows 7, the logfile can be found here:
+
+    C:\Users\<user>\AppData\Local\Temp\BrowserPlusInstaller.log
+
+If you're so inclined, take a look at the log.  You may be able to diagnose the problem yourself.  In any case, we'd love to see that logfile so that we can fix the problem.  Please attach it to an email to browserplus-feedback@yahoo-inc.com.  Please use a descriptive Subject line (like "YIKES, Installer failure!").
+
+Thanks.
+
+
+

@@ -16,5 +16,9 @@
 	{ 
 		"question": "How do I find BrowserPlus logs?",
 		"file": "logfile_location"
+	},
+	{ 
+		"question": "How do I diagnose installer problems?",
+		"file": "diagnose_installation_problems"
 	}
 ]
